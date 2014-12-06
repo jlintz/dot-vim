@@ -34,10 +34,6 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 
 set title
 
-"enable python autocomplete
-filetype plugin on
-let g:pydiction_location = '~/.vim/ftplugin/pydiction/complete-dict'
-
 "enable folding on indents
 set foldmethod=indent
 " don't autofold anything by default
