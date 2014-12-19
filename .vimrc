@@ -87,10 +87,10 @@ if has('statusline')
 endif
 
 " minbufexplorer options
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
+"let g:miniBufExplMapWindowNavVim = 1
+"let g:miniBufExplMapWindowNavArrows = 1
+"let g:miniBufExplMapCTabSwitchBufs = 1
+"let g:miniBufExplModSelTarget = 1
 
 " moar colors plz
 set t_Co=256
@@ -121,4 +121,5 @@ let g:pyflakes_use_quickfix = 0
 " run pep8 on file
 let g:pep8_map='<leader>8'
 
-"
+" increase max file limit
+let g:ctrlp_max_files=0
