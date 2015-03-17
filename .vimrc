@@ -75,17 +75,6 @@ nmap <silent> <c-n> :NERDTreeToggle<CR>
 " For all those times i forget to edit a file as root
 cmap w!! %!sudo tee > /dev/null %
 
-" sweet status line
-set laststatus=2
-if has('statusline')
-  set statusline=%<%f\
-  set statusline+=%w%h%m%r
-  set statusline+=%{fugitive#statusline()}
-  set statusline+=\ [%{&ff}/%Y]
-  set statusline+=\ [%{getcwd()}]
-  set statusline+=%=%-14.(Line:\ %l\ of\ %L\ [%p%%]\ -\ Col:\ %c%V%)
-endif
-
 " minbufexplorer options
 "let g:miniBufExplMapWindowNavVim = 1
 "let g:miniBufExplMapWindowNavArrows = 1
