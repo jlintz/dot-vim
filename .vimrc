@@ -127,3 +127,11 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 " airline settings
 set laststatus=2
 set ttimeoutlen=50
+
+" vim-go settings
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
