@@ -167,3 +167,6 @@ au FileType go nmap <Leader>s <Plug>(go-implements)
 "let g:go_highlight_build_constraints = 1
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
+" sane tabbing for yaml files
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
