@@ -174,3 +174,20 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 " terraform settings
 let g:terraform_align = 1
 let g:terraform_fmt_on_save = 1
+
+" (Optional) Enable terraform plan to be include in filter
+let g:syntastic_terraform_tffilter_plan = 1
+
+" (Optional) Default: 0, enable(1)/disable(0) plugin's keymapping
+let g:terraform_completion_keys = 1
+
+" (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
+let g:terraform_registry_module_completion = 0
+
+" identLine settings
+let g:indentLine_enabled = 1
+
+" Fix for jedi-vim with vim compiled from brew https://github.com/davidhalter/jedi-vim/issues/889
+:py3 sys.executable='/usr/local/bin/python3'
+
+
