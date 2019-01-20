@@ -7,3 +7,5 @@
  - `brew install ag`
  - `pip install jedi`
 
+# Updating submodiles
+ - `git submodule update --remote`
