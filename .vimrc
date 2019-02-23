@@ -188,6 +188,8 @@ let g:terraform_registry_module_completion = 0
 let g:indentLine_enabled = 1
 
 " Fix for jedi-vim with vim compiled from brew https://github.com/davidhalter/jedi-vim/issues/889
-:py3 sys.executable='/usr/local/bin/python3'
+if has('mac')
+    :py3 sys.executable='/usr/local/bin/python3'
+endif
 
 
