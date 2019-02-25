@@ -6,6 +6,7 @@
  - `git submodule update --init --recursive`
  - `brew install ag`
  - `pip install jedi`
+ - `pip install flake8`
 
 # Updating submodiles
  - `git submodule update --remote`
