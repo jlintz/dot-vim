@@ -125,8 +125,11 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 " airline settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 set laststatus=2
 set ttimeoutlen=50
+
 
 " vim-go settings
 let g:go_highlight_functions = 1
