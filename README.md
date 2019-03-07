@@ -10,3 +10,6 @@
 
 # Updating submodiles
  - `git submodule update --remote`
+
+# Adding New Plugin
+`git submodule add $REPO bundle/$NAME`
