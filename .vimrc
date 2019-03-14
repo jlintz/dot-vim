@@ -71,6 +71,8 @@ vnoremap <tab> %
 
 " NERDTree enable with ctrl-n
 nmap <silent> <c-n> :NERDTreeToggle<CR>
+" Open NERDTree to the directory of the current buffer
+nmap <silent> <c-o> :NERDTreeToggle %<CR>
 
 " For all those times i forget to edit a file as root
 cmap w!! %!sudo tee > /dev/null %
