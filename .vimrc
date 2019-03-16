@@ -29,7 +29,7 @@ set incsearch    "search as you enter search string
 "longer history
 set history=1000
 set undolevels=1000
-set undodir=~/.vim/.backup
+set undodir=~/.vim/.backup//
 
 set wildignore=*.swp,*.bak,*.pyc,*.class
 
