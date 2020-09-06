@@ -1,4 +1,14 @@
 
+
+" start of vim-plug plugins
+call plug#begin()
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" end of vim-plug setup
+call plug#end()
+
 " behave less vi like
 set nocompatible
 
