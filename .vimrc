@@ -6,6 +6,8 @@ call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'vim-scripts/comments.vim'
+
 " end of vim-plug setup
 call plug#end()
 
