@@ -8,6 +8,45 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'vim-scripts/comments.vim'
 
+
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+
+Plug 'airblade/vim-gitgutter'
+
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+Plug 'rodjek/vim-puppet'
+
+Plug 'Yggdroot/indentLine'
+
+Plug 'godlygeek/tabular'
+
+Plug 'altercation/vim-colors-solarized'
+
+Plug 'wellle/targets.vim'
+
+Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'kien/ctrlp.vim'
+
+Plug 'nvie/vim-flake8'
+
+Plug 'davidhalter/jedi-vim'
+
+Plug 'fholgado/minibufexpl.vim'
+
+Plug 'scrooloose/syntastic'
+
+Plug 'majutsushi/tagbar'
+
+Plug 'fatih/vim-go'
+
+Plug 'hashivim/vim-terraform'
+Plug 'juliosueiras/vim-terraform-completion'
+
+Plug 'Valloric/YouCompleteMe'
+
 " end of vim-plug setup
 call plug#end()
 
