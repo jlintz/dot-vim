@@ -27,8 +27,6 @@ Plug 'wellle/targets.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'kien/ctrlp.vim'
 
-Plug 'fholgado/minibufexpl.vim'
-
 Plug 'majutsushi/tagbar'
 
 Plug 'fatih/vim-go'
@@ -112,12 +110,6 @@ let g:NERDTreeShowHidden=1 " show hidden files
 
 " For all those times i forget to edit a file as root
 cmap w!! %!sudo tee > /dev/null %
-
-" minbufexplorer options
-"let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplMapWindowNavArrows = 1
-"let g:miniBufExplMapCTabSwitchBufs = 1
-"let g:miniBufExplModSelTarget = 1
 
 " moar colors plz
 set t_Co=256
