@@ -29,7 +29,7 @@ call plug#end() " end of vim-plug setup
 " additional colors
 set t_Co=256
 
-set encoding=UTF-8
+set encoding=utf-8
 "set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline\ 14
 
 " behave less vi like
@@ -336,3 +336,9 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " end coc config
+
+" devicons configuration
+let g:webdevicons_enable_airline_statusline = 1 " airline
+let g:webdevicons_enable_ctrlp = 1 " ctrlp glyphs
+
+
