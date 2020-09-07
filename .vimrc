@@ -41,6 +41,8 @@ Plug 'dense-analysis/ale'
 " end of vim-plug setup
 call plug#end()
 
+set encoding=UTF-8
+
 " behave less vi like
 set nocompatible
 
@@ -61,8 +63,7 @@ filetype on
 set autoindent    " always set autoindenting on
 set showmatch     " set show matching parenthesis
 set ignorecase    " ignore case when searching
-set smartcase     " ignore case if search pattern is all lowercase,
-                  "    case-sensitive otherwise
+set smartcase     " ignore case if search pattern is all lowercase, case-sensitive otherwise
 set hlsearch      " highlight search terms
 set incsearch    "search as you enter search string
 set relativenumber  " relative line numbers
@@ -103,7 +104,7 @@ let mapleader = ","
 nnoremap <tab> %
 vnoremap <tab> %
 
-"NERDTree options
+" NERDTree options
 nmap <silent> <c-n> :NERDTreeToggle<CR>   " NERDTree enable with ctrl-n
 nmap <silent> <c-o> :NERDTreeToggle %<CR> " Open NERDTree to the directory of the current buffer
 let g:NERDTreeShowHidden=1 " show hidden files
@@ -137,7 +138,6 @@ nmap <silent> <c-i> :TagbarToggle<CR>
 " ALE settings
 let g:ale_sign_error = 'E'
 let g:ale_sign_warning = 'W'
-
 let g:ale_fixers = {
       \    'python': ['black'],
       \}
@@ -161,9 +161,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
-
-" enable ALE extensions
-let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#ale#enabled = 1 " enable ALE extensions
 
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
@@ -180,7 +178,15 @@ nmap <C-w>k <Plug>AirlineSelectNextTab
 set laststatus=2
 set ttimeoutlen=50
 
+" highlight cloudformation templates
+au BufNewFile,BufRead *.template set filetype=json
+
 " vim-go settings
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>s <Plug>(go-implements)
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
@@ -188,37 +194,14 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-
-" highlight cloudformation templates
-au BufNewFile,BufRead *.template set filetype=json
-
-" vim-go settings
-
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
-au FileType go nmap <Leader>s <Plug>(go-implements)
-"let g:go_highlight_functions = 1
-"let g:go_highlight_methods = 1
-"let g:go_highlight_structs = 1
-"let g:go_highlight_interfaces = 1
-"let g:go_highlight_operators = 1
-"let g:go_highlight_build_constraints = 1
-
 " sane tabbing for yaml files
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " terraform settings
 let g:terraform_align = 1
 let g:terraform_fmt_on_save = 1
-
-" (Optional) Default: 0, enable(1)/disable(0) plugin's keymapping
-let g:terraform_completion_keys = 1
-
-" (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
-let g:terraform_registry_module_completion = 0
+let g:terraform_completion_keys = 1 " (Optional) Default: 0, enable(1)/disable(0) plugin's keymapping
+let g:terraform_registry_module_completion = 0 " (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
 
 " identLine settings
 let g:indentLine_enabled = 1
-
