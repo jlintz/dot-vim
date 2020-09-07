@@ -59,8 +59,6 @@ set number
 set hidden
 
 filetype on
-" in human-language files, automatically format everything at 72 chars:
-autocmd FileType mail,human set formatoptions+=t textwidth=72
 
 set autoindent    " always set autoindenting on
 set showmatch     " set show matching parenthesis
@@ -69,6 +67,7 @@ set smartcase     " ignore case if search pattern is all lowercase,
                   "    case-sensitive otherwise
 set hlsearch      " highlight search terms
 set incsearch    "search as you enter search string
+set relativenumber  " relative line numbers
 
 "longer history
 set history=1000
@@ -99,11 +98,6 @@ set shiftwidth=4
 set expandtab
 set softtabstop=4
 
-" Use pathogen to easily modify the runtime path to include all
-" " plugins under the ~/.vim/bundle directory
-call pathogen#helptags()
-call pathogen#infect()
-
 " change leader key from \ to ,
 let mapleader = ","
 
@@ -111,10 +105,10 @@ let mapleader = ","
 nnoremap <tab> %
 vnoremap <tab> %
 
-" NERDTree enable with ctrl-n
-nmap <silent> <c-n> :NERDTreeToggle<CR>
-" Open NERDTree to the directory of the current buffer
-nmap <silent> <c-o> :NERDTreeToggle %<CR>
+"NERDTree options
+nmap <silent> <c-n> :NERDTreeToggle<CR>   " NERDTree enable with ctrl-n
+nmap <silent> <c-o> :NERDTreeToggle %<CR> " Open NERDTree to the directory of the current buffer
+let g:NERDTreeShowHidden=1 " show hidden files
 
 " For all those times i forget to edit a file as root
 cmap w!! %!sudo tee > /dev/null %
