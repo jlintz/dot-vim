@@ -4,6 +4,7 @@
  - `ln -s ~/dot-vim/.vimrc ~/.vimrc`
  - `cd ~/.vim`
  - `brew install ag`
+ - `brew install nodejs`
  - `pip install jedi`
  - `pip install flake8`
 

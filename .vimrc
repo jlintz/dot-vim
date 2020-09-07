@@ -27,13 +27,7 @@ Plug 'wellle/targets.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'kien/ctrlp.vim'
 
-Plug 'nvie/vim-flake8'
-
-Plug 'davidhalter/jedi-vim'
-
 Plug 'fholgado/minibufexpl.vim'
-
-Plug 'scrooloose/syntastic'
 
 Plug 'majutsushi/tagbar'
 
@@ -42,7 +36,9 @@ Plug 'fatih/vim-go'
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
 
-Plug 'Valloric/YouCompleteMe'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'dense-analysis/ale'
 
 " end of vim-plug setup
 call plug#end()
@@ -152,11 +148,13 @@ match ExtraWhitespace /\s\+$/
 " tagbar
 nmap <silent> <c-i> :TagbarToggle<CR>
 
-" disable quickfix window
-let g:pyflakes_use_quickfix = 0
+" ALE settings
+let g:ale_sign_error = 'E'
+let g:ale_sign_warning = 'W'
 
-" run pep8 on file
-let g:pep8_map='<leader>8'
+let g:ale_fixers = {
+      \    'python': ['black'],
+      \}
 
 " increase max file limit
 let g:ctrlp_max_files=0
@@ -176,8 +174,11 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_powerline_fonts = 1
-
 let g:airline#extensions#tabline#buffer_idx_mode = 1
+
+" enable ALE extensions
+let g:airline#extensions#ale#enabled = 1
+
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
 nmap <leader>3 <Plug>AirlineSelectTab3
@@ -193,7 +194,6 @@ nmap <C-w>k <Plug>AirlineSelectNextTab
 set laststatus=2
 set ttimeoutlen=50
 
-
 " vim-go settings
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -202,19 +202,6 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-" syntastic settings
-
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 1
-
-" flake8 settings
-"let g:flake8_show_in_file=1
-let g:flake8_show_in_gutter=1
-let g:flake8_show_quickfix=0
-" run on each save
-autocmd BufWritePost *.py call Flake8()
 
 " highlight cloudformation templates
 au BufNewFile,BufRead *.template set filetype=json
@@ -232,8 +219,6 @@ au FileType go nmap <Leader>s <Plug>(go-implements)
 "let g:go_highlight_interfaces = 1
 "let g:go_highlight_operators = 1
 "let g:go_highlight_build_constraints = 1
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 " sane tabbing for yaml files
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -241,9 +226,6 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 " terraform settings
 let g:terraform_align = 1
 let g:terraform_fmt_on_save = 1
-
-" (Optional) Enable terraform plan to be include in filter
-let g:syntastic_terraform_tffilter_plan = 1
 
 " (Optional) Default: 0, enable(1)/disable(0) plugin's keymapping
 let g:terraform_completion_keys = 1
@@ -254,7 +236,3 @@ let g:terraform_registry_module_completion = 0
 " identLine settings
 let g:indentLine_enabled = 1
 
-" Fix for jedi-vim with vim compiled from brew https://github.com/davidhalter/jedi-vim/issues/889
-if has('mac')
-    :py3 sys.executable='/usr/local/bin/python3'
-endif
