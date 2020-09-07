@@ -1,5 +1,3 @@
-
-
 " start of vim-plug plugins
 call plug#begin()
 
@@ -7,7 +5,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'vim-scripts/comments.vim'
-
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
@@ -56,6 +53,9 @@ set nocompatible
 "syntax highlighting
 syntax on
 
+" fix backspace behavior in insert mode
+set backspace=indent,eol,start
+
 "line numbers
 set number
 
@@ -73,9 +73,6 @@ set smartcase     " ignore case if search pattern is all lowercase,
                   "    case-sensitive otherwise
 set hlsearch      " highlight search terms
 set incsearch    "search as you enter search string
-
-" have <esc> remove search highlighting
-"nnoremap <silent> <esc> :noh<return><esc>
 
 "longer history
 set history=1000
@@ -96,9 +93,6 @@ set iskeyword+=_,$,@,%,#
 
 " highlight current line
 set cursorline
-
-" wrap at 79 chars
-" set textwidth=79
 
 " run python code
 map <F5> :!python %<cr>
