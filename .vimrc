@@ -1,4 +1,6 @@
 " start of vim-plug plugins
+let g:ale_disable_lsp = 1
+
 call plug#begin()
 
 Plug 'vim-python/python-syntax'
@@ -15,7 +17,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'godlygeek/tabular'
 Plug 'altercation/vim-colors-solarized'
 Plug 'wellle/targets.vim'
-Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'hashivim/vim-terraform'
@@ -96,6 +97,7 @@ vnoremap <tab> %
 " NERDTree options
 nmap <silent> <c-n> :NERDTreeToggle<CR>   " NERDTree enable with ctrl-n
 nmap <silent> <c-o> :NERDTreeToggle %<CR> " Open NERDTree to the directory of the current buffer
+let NERDTreeQuitOnOpen = 1
 
 " For all those times i forget to edit a file as root
 cmap w!! %!sudo tee > /dev/null %
@@ -138,8 +140,6 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .DS_Store
       \ --ignore "**/*.pyc"
       \ -g ""'
-
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 " airline settings
 let g:airline#extensions#tabline#enabled = 1
@@ -338,7 +338,10 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " end coc config
 
 " devicons configuration
+let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_enable_airline_statusline = 1 " airline
-let g:webdevicons_enable_ctrlp = 1 " ctrlp glyphs
-
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+let g:WebDevIconsUnicodeDecorateFileNodes = 1
 

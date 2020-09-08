@@ -2,5 +2,6 @@
     "python.formatting.provider": "black",
     "python.formatting.blackPath": "~/.local/bin/black",
     "python.jediEnabled": true,
-    "python.linting.flake8Path": "~/.local/bin/flake8"
+    "python.linting.flake8Path": "~/.local/bin/flake8",
+    "diagnostic.displayByAle": true
 }
