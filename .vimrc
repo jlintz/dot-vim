@@ -1,6 +1,15 @@
 " start of vim-plug plugins
 let g:ale_disable_lsp = 1
 
+let g:coc_global_extensions = [
+    \  'coc-python',
+    \  'coc-json',
+    \  'coc-yaml',
+    \  'coc-sh',
+    \  'coc-html',
+    \  'coc-css'
+    \]
+
 call plug#begin()
 
 Plug 'vim-python/python-syntax'
