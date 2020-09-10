@@ -132,8 +132,8 @@ match ExtraWhitespace /\s\+$/
 nmap <silent> <c-i> :TagbarToggle<CR>
 
 " ALE settings
-let g:ale_sign_error = 'E'
-let g:ale_sign_warning = 'W'
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = ''
 let g:ale_fixers = {
       \    'python': ['black'],
       \}
@@ -265,7 +265,7 @@ function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
+    call CocActionAsync('doHover')
   endif
 endfunction
 

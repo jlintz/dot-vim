@@ -3,5 +3,7 @@
     "python.formatting.blackPath": "~/.local/bin/black",
     "python.jediEnabled": true,
     "python.linting.flake8Path": "~/.local/bin/flake8",
-    "diagnostic.displayByAle": true
+    "python.autoComplete.addBrackets": true,
+    "diagnostic.displayByAle": true,
+    "coc.preferences.highlightTimeout": 5000
 }
