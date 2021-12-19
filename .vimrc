@@ -32,6 +32,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
+Plug 'cappyzawa/starlark.vim'
 Plug 'ryanoasis/vim-devicons' " always at bottom
 
 call plug#end() " end of vim-plug setup
