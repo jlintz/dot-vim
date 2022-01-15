@@ -1,3 +1,6 @@
+
+set termguicolors
+
 " start of vim-plug plugins
 let g:ale_disable_lsp = 1
 
@@ -27,7 +30,6 @@ Plug 'rodjek/vim-puppet'
 Plug 'Yggdroot/indentLine'
 Plug 'godlygeek/tabular'
 Plug 'wellle/targets.vim'
-Plug 'overcache/NeoSolarized'
 Plug 'majutsushi/tagbar'
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
@@ -36,6 +38,10 @@ Plug 'dense-analysis/ale'
 Plug 'cappyzawa/starlark.vim'
 Plug 'ryanoasis/vim-devicons' " always at bottom
 
+" Color schemes
+
+Plug 'overcache/NeoSolarized'
+Plug 'mhartington/oceanic-next'
 call plug#end() " end of vim-plug setup
 
 " additional colors
@@ -118,7 +124,7 @@ cmap w!! %!sudo tee > /dev/null %
 
 " enable solarized color scheme
 set background=dark
-colorscheme NeoSolarized
+colorscheme OceanicNext
 
 " show who to blame on the current line you are on
 nmap B :ec system('git blame -L'.line('.').',+1 '.expand('%'))<CR>
@@ -143,7 +149,6 @@ let g:ale_fixers = {
       \    'python': ['black'],
       \}
 
-
 " airline settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
@@ -151,6 +156,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#ale#enabled = 1 " enable ALE extensions
 let g:airline#extensions#coc#enabled = 1 " coc status
+let g:airline_theme='oceanicnext'
 
 
 nmap <leader>1 <Plug>AirlineSelectTab1
@@ -347,4 +353,3 @@ let g:DevIconsEnableFoldersOpenClose = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 let g:WebDevIconsUnicodeDecorateFileNodes = 1
-
