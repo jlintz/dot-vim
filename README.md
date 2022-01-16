@@ -5,8 +5,12 @@
  - `cd ~/.vim`
  - `brew install ag`
  - `brew install nodejs`
- - `pip install jedi`
- - `pip install flake8`
+ - `brew install fzf`
+
+ # NeoVim
+ mkdir -p ~/.config/nvim
+ ln -s ~/dot-vim/autoload ~/.config/nvim
+ ln -s ~/dot-vim/init.vim ~/.config/nvim/
 
 # Installing plugins
 :PlugInstall
