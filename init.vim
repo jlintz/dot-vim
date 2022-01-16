@@ -14,6 +14,9 @@ let g:coc_global_extensions = [
     \]
 
 call plug#begin()
+" Color schemes
+Plug 'overcache/NeoSolarized'
+Plug 'mhartington/oceanic-next'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -38,10 +41,6 @@ Plug 'dense-analysis/ale'
 Plug 'cappyzawa/starlark.vim'
 Plug 'ryanoasis/vim-devicons' " always at bottom
 
-" Color schemes
-
-Plug 'overcache/NeoSolarized'
-Plug 'mhartington/oceanic-next'
 call plug#end() " end of vim-plug setup
 
 " additional colors
@@ -118,6 +117,7 @@ vnoremap <tab> %
 nmap <silent> <c-n> :NERDTreeToggle<CR>   " NERDTree enable with ctrl-n
 nmap <silent> <c-o> :NERDTreeToggle %<CR> " Open NERDTree to the directory of the current buffer
 let NERDTreeQuitOnOpen = 1
+let NERDTreeShowHidden=1
 
 " For all those times i forget to edit a file as root
 cmap w!! %!sudo tee > /dev/null %
