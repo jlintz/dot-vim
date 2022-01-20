@@ -1,9 +1,8 @@
 {
     "python.formatting.provider": "black",
-    "python.formatting.blackPath": "~/.local/bin/black",
     "python.jediEnabled": true,
-    "python.linting.flake8Path": "~/.local/bin/flake8",
     "python.autoComplete.addBrackets": true,
     "diagnostic.displayByAle": true,
-    "coc.preferences.highlightTimeout": 5000
+    "coc.preferences.highlightTimeout": 5000,
+    "coc.preferences.formatOnSaveFiletypes": ["python"]
 }
