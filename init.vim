@@ -1,7 +1,7 @@
 
 set termguicolors
 
-" start of vim-plug plugins
+" use coc-vim for LSP
 let g:ale_disable_lsp = 1
 
 let g:coc_global_extensions = [
@@ -13,6 +13,7 @@ let g:coc_global_extensions = [
     \  'coc-css'
     \]
 
+" start of vim-plug plugins
 call plug#begin()
 " Color schemes
 Plug 'overcache/NeoSolarized'
@@ -20,7 +21,7 @@ Plug 'mhartington/oceanic-next'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'vim-python/python-syntax'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/comments.vim'
@@ -47,7 +48,6 @@ call plug#end() " end of vim-plug setup
 set t_Co=256
 
 set encoding=utf-8
-"set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline\ 14
 
 " behave less vi like
 set nocompatible
@@ -106,7 +106,7 @@ set softtabstop=4
 " change leader key from \ to ,
 let mapleader = ","
 
-" fzf 
+" fzf
 nmap <C-P> :Files<CR>
 
 " have tab move around brackets
@@ -118,9 +118,6 @@ nmap <silent> <c-n> :NERDTreeToggle<CR>   " NERDTree enable with ctrl-n
 nmap <silent> <c-o> :NERDTreeToggle %<CR> " Open NERDTree to the directory of the current buffer
 let NERDTreeQuitOnOpen = 1
 let NERDTreeShowHidden=1
-
-" For all those times i forget to edit a file as root
-cmap w!! %!sudo tee > /dev/null %
 
 " enable solarized color scheme
 set background=dark
@@ -321,10 +318,10 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 command! -nargs=0 Format :call CocAction('format')
 
 " Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 OR   :call CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
@@ -357,3 +354,31 @@ let g:DevIconsEnableFoldersOpenClose = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 let g:WebDevIconsUnicodeDecorateFileNodes = 1
+
+" Treesitter config
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+    -- One of "all", "maintained" (parsers with maintainers), or a list of languages
+    ensure_installed = "maintained",
+
+    -- Install languages synchronously (only applied to `ensure_installed`)
+    sync_install = false,
+
+    -- List of parsers to ignore installing
+    ignore_install = { "javascript" },
+
+    highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+
+    -- list of language that will be disabled
+    disable = { "c", "rust" },
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+    },
+}
+EOF
