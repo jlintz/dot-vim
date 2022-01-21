@@ -2,6 +2,7 @@
     "python.formatting.provider": "black",
     "python.jediEnabled": true,
     "python.autoComplete.addBrackets": true,
+    "python.pythonPath": "python",
     "diagnostic.displayByAle": true,
     "coc.preferences.highlightTimeout": 5000,
     "coc.preferences.formatOnSaveFiletypes": ["python"]
