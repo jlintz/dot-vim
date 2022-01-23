@@ -1,6 +1,9 @@
 {
     "python.formatting.provider": "black",
     "python.pythonPath": "python",
-    "diagnostic.displayByAle": true,
-    "coc.preferences.formatOnSaveFiletypes": ["python"]
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "coc.preferences.formatOnSaveFiletypes": ["python"],
+    "diagnostic.errorSign": "✘",
+    "diagnostic.warningSign": ""
 }

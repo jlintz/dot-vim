@@ -1,9 +1,6 @@
 
 set termguicolors
 
-" use coc-vim for LSP
-let g:ale_disable_lsp = 1
-
 let g:coc_global_extensions = [
     \  'coc-pyright',
     \  'coc-json',
@@ -38,7 +35,6 @@ Plug 'majutsushi/tagbar'
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'dense-analysis/ale'
 Plug 'cappyzawa/starlark.vim'
 Plug 'ryanoasis/vim-devicons' " always at bottom
 
@@ -143,19 +139,12 @@ match ExtraWhitespace /\s\+$/
 " tagbar
 nmap <silent> <c-i> :TagbarToggle<CR>
 
-" ALE settings
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = ''
-let g:ale_fixers = {
-      \    'python': ['black'],
-      \}
 
 " airline settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline#extensions#ale#enabled = 1 " enable ALE extensions
 let g:airline#extensions#coc#enabled = 1 " coc status
 let g:airline_theme='oceanicnext'
 
