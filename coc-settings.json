@@ -5,5 +5,7 @@
     "python.linting.flake8Enabled": true,
     "coc.preferences.formatOnSaveFiletypes": ["python"],
     "diagnostic.errorSign": "✘",
-    "diagnostic.warningSign": ""
+    "diagnostic.warningSign": "",
+    "diagnostic.checkCurrentLine":true,
+    "diagnostic.virtualText":true
 }
