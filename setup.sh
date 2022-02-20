@@ -23,7 +23,7 @@ fi
 if [[ $OS == "mac" ]]; then
     brew install neovim ag fzf nodejs
 elif [[ $OS == "linux" ]]; then
-    sudo apt install -f neovim silversearcher-ag fzf nodejs
+    sudo apt install -f -y -q neovim silversearcher-ag fzf nodejs
 fi
 
 # setup config directories
