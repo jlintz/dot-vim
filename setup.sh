@@ -33,4 +33,4 @@ ln -sf ~/dot-vim/init.vim ~/.config/nvim/
 ln -sf ~/dot-vim/coc-settings.json ~/.config/nvim/
 
 #Install plugins
-nvim --headless +PlugInstall +qa
+nvim --headless "+PlugInstall +qa"
