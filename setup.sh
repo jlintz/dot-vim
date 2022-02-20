@@ -28,9 +28,9 @@ fi
 
 # setup config directories
 mkdir -p ~/.config/nvim
-ln -s ~/dot-vim/autoload ~/.config/nvim
-ln -s ~/dot-vim/init.vim ~/.config/nvim/
-ln -s ~/dot-vim/coc-settings.json ~/.config/nvim/
+ln -sf ~/dot-vim/autoload ~/.config/nvim
+ln -sf ~/dot-vim/init.vim ~/.config/nvim/
+ln -sf ~/dot-vim/coc-settings.json ~/.config/nvim/
 
 #Install plugins
 nvim --headless +PlugInstall +qa
