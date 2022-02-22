@@ -24,4 +24,4 @@ ln -sf ${FILE_LOC}/init.vim ~/.config/nvim/
 ln -sf ${FILE_LOC}/coc-settings.json ~/.config/nvim/
 
 #Install plugins
-nvim --headless "+PlugInstall +qa"
+nvim --headless -e "+PlugInstall" "+qa"
