@@ -1,9 +1,6 @@
 #!/bin/bash
 set +ex
 
-# verify cloned to ~/dot-vim
-WORK_DIR="${HOME}/dot-vim"
-
 if [[ $(uname) == "Darwin" ]]; then
     READLINK=greadlink
     OS="mac"
@@ -14,12 +11,6 @@ fi
 
 FILE_LOC=$(dirname "$($READLINK -f "${0}")")
 
-# lazy and expect things to be in proper directory
-if [[ $FILE_LOC != "${WORK_DIR}" ]]; then
-    echo "ERR: Clone to ${WORK_DIR}"
-    exit 1
-fi
-
 if [[ $OS == "mac" ]]; then
     brew install neovim ag fzf nodejs
 elif [[ $OS == "linux" ]]; then
@@ -28,9 +19,9 @@ fi
 
 # setup config directories
 mkdir -p ~/.config/nvim
-ln -sf ~/dot-vim/autoload ~/.config/nvim
-ln -sf ~/dot-vim/init.vim ~/.config/nvim/
-ln -sf ~/dot-vim/coc-settings.json ~/.config/nvim/
+ln -sf ${FILE_LOC}/autoload ~/.config/nvim
+ln -sf ${FILE_LOC}/init.vim ~/.config/nvim/
+ln -sf ${FILE_LOC}/coc-settings.json ~/.config/nvim/
 
 #Install plugins
 nvim --headless "+PlugInstall +qa"
