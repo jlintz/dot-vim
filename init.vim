@@ -36,6 +36,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'cappyzawa/starlark.vim'
+Plug 'folke/which-key.nvim'
 Plug 'ryanoasis/vim-devicons' " always at bottom
 
 call plug#end() " end of vim-plug setup
@@ -339,8 +340,12 @@ let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 let g:WebDevIconsUnicodeDecorateFileNodes = 1
 
-" Treesitter config
+" Lua configs
 lua <<EOF
+require("which-key").setup {
+
+}
+
 require'nvim-treesitter.configs'.setup {
     -- One of "all", "maintained" (parsers with maintainers), or a list of languages
     ensure_installed = "maintained",
