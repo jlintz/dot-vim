@@ -237,6 +237,7 @@ endif
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>? :call CocAction('diagnosticInfo') <CR>
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
