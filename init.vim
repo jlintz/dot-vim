@@ -164,9 +164,6 @@ set ttimeoutlen=50
 " highlight cloudformation templates
 au BufNewFile,BufRead *.template set filetype=json
 
-" vim-python enable
-let g:python_highlight_all = 1
-
 " sane tabbing for yaml files
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
