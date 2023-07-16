@@ -34,6 +34,7 @@ Plug 'wellle/targets.vim'
 Plug 'majutsushi/tagbar'
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
+Plug 'rcarriga/nvim-notify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'cappyzawa/starlark.vim'
 Plug 'folke/which-key.nvim'
