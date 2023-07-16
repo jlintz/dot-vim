@@ -33,7 +33,6 @@ Plug 'wellle/targets.vim'
 Plug 'majutsushi/tagbar'
 Plug 'rcarriga/nvim-notify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'cappyzawa/starlark.vim'
 Plug 'folke/which-key.nvim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ryanoasis/vim-devicons' " always at bottom
