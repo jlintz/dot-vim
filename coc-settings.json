@@ -9,5 +9,8 @@
     "diagnostic.messageTarget": "echo",
     "diagnostic.checkCurrentLine": true,
     "diagnostic.virtualTextCurrentLineOnly": true,
-    "suggest.noselect": true
+    "suggest.noselect": true,
+    "pyright.inlayHints.functionReturnTypes": false,
+    "pyright.inlayHints.variableTypes": false,
+    "pyright.inlayHints.parameterTypes": false
 }
