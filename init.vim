@@ -17,6 +17,7 @@ call plug#begin()
 Plug 'overcache/NeoSolarized'
 Plug 'mhartington/oceanic-next'
 
+Plug 'David-Kunz/gen.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
@@ -340,6 +341,8 @@ let g:DevIconsEnableFoldersOpenClose = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 let g:WebDevIconsUnicodeDecorateFileNodes = 1
+
+
 
 " Lua configs
 lua <<EOF
