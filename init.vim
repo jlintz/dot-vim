@@ -17,6 +17,8 @@ call plug#begin()
 Plug 'overcache/NeoSolarized'
 Plug 'mhartington/oceanic-next'
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'greggh/claude-code.nvim'
 Plug 'David-Kunz/gen.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -346,9 +348,17 @@ let g:WebDevIconsUnicodeDecorateFileNodes = 1
 
 " Lua configs
 lua <<EOF
+require('claude-code').setup()
+
 require("which-key").setup {
 
 }
+require('gen').setup({
+        model = "qwen2.5-coder:7b",
+        display_mode = "split", -- also checked float
+        no_auto_close = true, -- also checked false
+        hidden = false, -- also checked true
+        })
 
 require'nvim-treesitter.configs'.setup {
     -- One of "all", "maintained" (parsers with maintainers), or a list of languages
