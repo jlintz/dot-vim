@@ -16,6 +16,7 @@ call plug#begin()
 " Color schemes
 Plug 'overcache/NeoSolarized'
 Plug 'mhartington/oceanic-next'
+Plug 'sainnhe/everforest'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'greggh/claude-code.nvim'
