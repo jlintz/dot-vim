@@ -3,6 +3,7 @@
     "python.pythonPath": "python",
     "python.linting.enabled": true,
     "python.linting.ruffEnabled": true,
+    "pyright.organizeimports.provider": "ruff",
     "coc.preferences.formatOnSave": true,
     "diagnostic.errorSign": "✘",
     "diagnostic.warningSign": "",
