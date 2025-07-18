@@ -3,7 +3,7 @@
     "python.pythonPath": "python",
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
-    "coc.preferences.formatOnSaveFiletypes": ["python"],
+    "coc.preferences.formatOnSave": true,
     "diagnostic.errorSign": "✘",
     "diagnostic.warningSign": "",
     "diagnostic.messageTarget": "echo",
@@ -12,5 +12,8 @@
     "suggest.noselect": true,
     "pyright.inlayHints.functionReturnTypes": false,
     "pyright.inlayHints.variableTypes": false,
-    "pyright.inlayHints.parameterTypes": false
+    "pyright.inlayHints.parameterTypes": false,
+    "floatFactory.floatConfig.border": true,
+    "floatFactory.floatConfig.rounded": true,
+    "floatFactory.floatConfig.winblend": 80
 }
