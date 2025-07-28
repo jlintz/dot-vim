@@ -123,9 +123,6 @@ colorscheme OceanicNext
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
 
-" show who to blame on the current line you are on
-nmap B :ec system('git blame -L'.line('.').',+1 '.expand('%'))<CR>
-
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
