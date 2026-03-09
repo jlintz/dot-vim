@@ -104,9 +104,6 @@ colorscheme OceanicNext
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
 
-" Highlight VCS conflict markers
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-
 " so that some mapping still works when the cursor is at the end of file.
 set virtualedit=onemore
 
