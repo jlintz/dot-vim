@@ -44,27 +44,8 @@ Plug 'ryanoasis/vim-devicons' " always at bottom
 
 call plug#end() " end of vim-plug setup
 
-" additional colors
-set t_Co=256
-
-set encoding=utf-8
-
-" behave less vi like
-set nocompatible
-
-"syntax highlighting
-syntax on
-
-" fix backspace behavior in insert mode
-set backspace=indent,eol,start
-
 "line numbers
 set number
-
-"hide buffers instead of closing them
-set hidden
-
-filetype on
 
 set autoindent    " always set autoindenting on
 set showmatch     " set show matching parenthesis
@@ -158,7 +139,6 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <C-w>j <Plug>AirlineSelectPrevTab
 nmap <C-w>k <Plug>AirlineSelectNextTab
 
-set laststatus=2
 set ttimeoutlen=50
 
 " highlight cloudformation templates
