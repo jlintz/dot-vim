@@ -16,5 +16,5 @@
     "pyright.inlayHints.parameterTypes": false,
     "floatFactory.floatConfig.border": true,
     "floatFactory.floatConfig.rounded": true,
-    "floatFactory.floatConfig.winblend": 80
+    "floatFactory.floatConfig.winblend": 0
 }

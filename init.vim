@@ -104,6 +104,10 @@ colorscheme OceanicNext
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
 
+" CoC floating window colors
+highlight CocFloating guibg=#1b2b34
+highlight CocFloatBorder guifg=#65737e guibg=#1b2b34
+
 " so that some mapping still works when the cursor is at the end of file.
 set virtualedit=onemore
 
