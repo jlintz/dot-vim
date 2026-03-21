@@ -1,6 +1,7 @@
-
+" enable 24-bit color
 set termguicolors
 
+" CoC language server extensions
 let g:coc_global_extensions = [
     \  'coc-pyright',
     \  'coc-json',
@@ -18,29 +19,39 @@ Plug 'overcache/NeoSolarized'
 Plug 'mhartington/oceanic-next'
 Plug 'sainnhe/everforest'
 
+" AI
 Plug 'nvim-lua/plenary.nvim'
 Plug 'greggh/claude-code.nvim'
 Plug 'David-Kunz/gen.nvim'
+" Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+" Syntax
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Status line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" Editing
 Plug 'vim-scripts/comments.vim'
+" Git
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
+" File explorer
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+" UI
 Plug 'Yggdroot/indentLine'
 Plug 'godlygeek/tabular'
 Plug 'wellle/targets.vim'
 Plug 'majutsushi/tagbar'
 Plug 'rcarriga/nvim-notify'
+" LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Misc
 Plug 'folke/which-key.nvim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'ryanoasis/vim-devicons' " always at bottom
+Plug 'ryanoasis/vim-devicons' " must be last
 
 call plug#end() " end of vim-plug setup
 
