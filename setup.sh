@@ -1,27 +1,39 @@
 #!/bin/bash
-set +ex
+set -e
 
 if [[ $(uname) == "Darwin" ]]; then
-    READLINK=greadlink
     OS="mac"
 elif [[ $(uname) == "Linux" ]]; then
-    READLINK=readlink
     OS="linux"
+else
+    echo "Unsupported OS: $(uname)"
+    exit 1
 fi
 
-FILE_LOC=$(dirname "$($READLINK -f "${0}")")
-
+# resolve script directory
 if [[ $OS == "mac" ]]; then
-    brew install neovim ag fzf nodejs
-elif [[ $OS == "linux" ]]; then
-    sudo apt install -f -y -q neovim silversearcher-ag fzf nodejs
+    # install coreutils for greadlink if missing
+    if ! command -v greadlink &>/dev/null; then
+        brew install coreutils
+    fi
+    FILE_LOC=$(dirname "$(greadlink -f "${0}")")
+else
+    FILE_LOC=$(dirname "$(readlink -f "${0}")")
 fi
 
-# setup config directories
-mkdir -p ~/.config/nvim
-ln -sf ${FILE_LOC}/autoload ~/.config/nvim
-ln -sf ${FILE_LOC}/init.vim ~/.config/nvim/
-ln -sf ${FILE_LOC}/coc-settings.json ~/.config/nvim/
+# install dependencies
+if [[ $OS == "mac" ]]; then
+    brew install neovim fzf ripgrep node
+elif [[ $OS == "linux" ]]; then
+    sudo apt update -q
+    sudo apt install -f -y -q neovim fzf ripgrep nodejs npm
+fi
 
-#Install plugins
-nvim --headless -e "+PlugInstall" "+qa"
+# setup config directory and symlinks
+mkdir -p ~/.config/nvim
+ln -sf "${FILE_LOC}/autoload" ~/.config/nvim/
+ln -sf "${FILE_LOC}/init.vim" ~/.config/nvim/
+ln -sf "${FILE_LOC}/coc-settings.json" ~/.config/nvim/
+
+# install plugins
+nvim --headless "+PlugInstall --sync" "+qa"
