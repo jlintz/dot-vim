@@ -47,16 +47,11 @@ call plug#end() " end of vim-plug setup
 "line numbers
 set number
 
-set autoindent    " always set autoindenting on
 set showmatch     " set show matching parenthesis
 set ignorecase    " ignore case when searching
 set smartcase     " ignore case if search pattern is all lowercase, case-sensitive otherwise
-set hlsearch      " highlight search terms
-set incsearch    "search as you enter search string
 set relativenumber  " relative line numbers
 
-"longer history
-set history=1000
 set undolevels=1000
 set undodir=~/.vim/.backup//
 
@@ -96,7 +91,6 @@ nmap <silent> <c-o> :NERDTreeToggle %<CR> " Open NERDTree to the directory of th
 let NERDTreeQuitOnOpen = 1
 let NERDTreeShowHidden=1
 
-" enable solarized color scheme
 set background=dark
 colorscheme OceanicNext
 
@@ -148,12 +142,6 @@ au BufNewFile,BufRead *.template set filetype=json
 " sane tabbing for yaml files
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
-" terraform settings
-let g:terraform_align = 1
-let g:terraform_fmt_on_save = 1
-let g:terraform_completion_keys = 1 " (Optional) Default: 0, enable(1)/disable(0) plugin's keymapping
-let g:terraform_registry_module_completion = 0 " (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
-
 " identLine settings
 let g:indentLine_enabled = 1
 
@@ -200,20 +188,7 @@ function! CheckBackspace() abort
 endfunction
 
 " Use <c-space> to trigger completion
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
+inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -290,11 +265,6 @@ command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call CocAction('runCommand', 'editor.action.organizeImport')
-
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
