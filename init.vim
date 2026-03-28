@@ -9,7 +9,7 @@ let g:coc_global_extensions = [
     \  'coc-sh',
     \  'coc-go',
     \  'coc-html',
-    \  'coc-css'
+    \  'coc-css',
     \]
 
 " start of vim-plug plugins
@@ -48,6 +48,7 @@ Plug 'majutsushi/tagbar'
 Plug 'rcarriga/nvim-notify'
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'yaegassy/coc-nginx', {'do': 'yarn install --frozen-lockfile'}
 " Misc
 Plug 'folke/which-key.nvim'
 Plug 'christoomey/vim-tmux-navigator'
