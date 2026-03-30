@@ -1,5 +1,4 @@
--- enable 24-bit color
-vim.opt.termguicolors = true
+vim.loader.enable()
 
 -- CoC language server extensions
 vim.g.coc_global_extensions = {
@@ -16,22 +15,18 @@ vim.g.coc_global_extensions = {
 local gh = function(repo) return 'https://github.com/' .. repo end
 
 -- Plugin post-install/update hooks
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'PackChanged',
-  callback = function(ev)
-    local name = ev.data.spec.name
-    local kind = ev.data.kind
-    if kind ~= 'install' and kind ~= 'update' then return end
+vim.api.nvim_create_autocmd('PackChanged', { callback = function(ev)
+  local name, kind = ev.data.spec.name, ev.data.kind
 
-    if name == 'fzf' then
-      vim.fn['fzf#install']()
-    elseif name == 'nvim-treesitter' then
-      vim.cmd('TSUpdate')
-    elseif name == 'coc-nginx' then
-      vim.system({ 'yarn', 'install', '--frozen-lockfile' }, { cwd = ev.data.path })
-    end
-  end,
-})
+  if name == 'fzf' and (kind == 'install' or kind == 'update') then
+    vim.fn['fzf#install']()
+  elseif name == 'nvim-treesitter' and kind == 'update' then
+    if not ev.data.active then vim.cmd.packadd('nvim-treesitter') end
+    vim.cmd('TSUpdate')
+  elseif name == 'coc-nginx' and (kind == 'install' or kind == 'update') then
+    vim.system({ 'yarn', 'install', '--frozen-lockfile' }, { cwd = ev.data.path })
+  end
+end })
 
 -- Install and load plugins via built-in vim.pack
 vim.pack.add({
@@ -137,7 +132,7 @@ vim.api.nvim_set_hl(0, 'CocFloatBorder', { fg = '#65737e', bg = '#1b2b34' })
 vim.opt.virtualedit = 'onemore'
 
 -- Show trailing whitespace
-vim.api.nvim_set_hl(0, 'ExtraWhitespace', { ctermbg = 'red', bg = 'red' })
+vim.api.nvim_set_hl(0, 'ExtraWhitespace', { bg = 'red' })
 vim.fn.matchadd('ExtraWhitespace', [[\s\+$]])
 
 -- tagbar
