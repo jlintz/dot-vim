@@ -32,7 +32,7 @@ fi
 # setup config directory and symlinks
 mkdir -p ~/.config/nvim
 ln -sf "${FILE_LOC}/autoload" ~/.config/nvim/
-ln -sf "${FILE_LOC}/init.vim" ~/.config/nvim/
+ln -sf "${FILE_LOC}/init.lua" ~/.config/nvim/
 ln -sf "${FILE_LOC}/coc-settings.json" ~/.config/nvim/
 
 # install plugins
