@@ -12,50 +12,68 @@ vim.g.coc_global_extensions = {
   'coc-css',
 }
 
--- start of vim-plug plugins
-local plug = vim.fn['plug#']
-vim.call('plug#begin')
--- Color schemes
-plug('overcache/NeoSolarized')
-plug('mhartington/oceanic-next')
-plug('sainnhe/everforest')
+-- GitHub URL helper
+local gh = function(repo) return 'https://github.com/' .. repo end
 
--- AI
-plug('nvim-lua/plenary.nvim')
-plug('greggh/claude-code.nvim')
-plug('David-Kunz/gen.nvim')
--- Fuzzy finder
-plug('junegunn/fzf', { ['do'] = function() vim.fn['fzf#install']() end })
-plug('junegunn/fzf.vim')
--- Syntax
-plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
--- Status line
-plug('vim-airline/vim-airline')
-plug('vim-airline/vim-airline-themes')
--- Editing
-plug('vim-scripts/comments.vim')
--- Git
-plug('tpope/vim-fugitive')
-plug('tpope/vim-rhubarb')
-plug('airblade/vim-gitgutter')
--- File explorer
-plug('preservim/nerdtree')
-plug('Xuyuanp/nerdtree-git-plugin')
--- UI
-plug('Yggdroot/indentLine')
-plug('godlygeek/tabular')
-plug('wellle/targets.vim')
-plug('majutsushi/tagbar')
-plug('rcarriga/nvim-notify')
--- LSP
-plug('neoclide/coc.nvim', { branch = 'release' })
-plug('yaegassy/coc-nginx', { ['do'] = 'yarn install --frozen-lockfile' })
--- Misc
-plug('folke/which-key.nvim')
-plug('christoomey/vim-tmux-navigator')
-plug('ryanoasis/vim-devicons') -- must be last
+-- Plugin post-install/update hooks
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'PackChanged',
+  callback = function(ev)
+    local name = ev.data.spec.name
+    local kind = ev.data.kind
+    if kind ~= 'install' and kind ~= 'update' then return end
 
-vim.call('plug#end') -- end of vim-plug setup
+    if name == 'fzf' then
+      vim.fn['fzf#install']()
+    elseif name == 'nvim-treesitter' then
+      vim.cmd('TSUpdate')
+    elseif name == 'coc-nginx' then
+      vim.system({ 'yarn', 'install', '--frozen-lockfile' }, { cwd = ev.data.path })
+    end
+  end,
+})
+
+-- Install and load plugins via built-in vim.pack
+vim.pack.add({
+  -- Color schemes
+  gh('overcache/NeoSolarized'),
+  gh('mhartington/oceanic-next'),
+  gh('sainnhe/everforest'),
+  -- AI
+  gh('nvim-lua/plenary.nvim'),
+  gh('greggh/claude-code.nvim'),
+  gh('David-Kunz/gen.nvim'),
+  -- Fuzzy finder
+  gh('junegunn/fzf'),
+  gh('junegunn/fzf.vim'),
+  -- Syntax
+  gh('nvim-treesitter/nvim-treesitter'),
+  -- Status line
+  gh('vim-airline/vim-airline'),
+  gh('vim-airline/vim-airline-themes'),
+  -- Editing
+  gh('vim-scripts/comments.vim'),
+  -- Git
+  gh('tpope/vim-fugitive'),
+  gh('tpope/vim-rhubarb'),
+  gh('airblade/vim-gitgutter'),
+  -- File explorer
+  gh('preservim/nerdtree'),
+  gh('Xuyuanp/nerdtree-git-plugin'),
+  -- UI
+  gh('Yggdroot/indentLine'),
+  gh('godlygeek/tabular'),
+  gh('wellle/targets.vim'),
+  gh('majutsushi/tagbar'),
+  gh('rcarriga/nvim-notify'),
+  -- LSP
+  { src = gh('neoclide/coc.nvim'), version = 'release' },
+  { src = gh('yaegassy/coc-nginx'), name = 'coc-nginx' },
+  -- Misc
+  gh('folke/which-key.nvim'),
+  gh('christoomey/vim-tmux-navigator'),
+  gh('ryanoasis/vim-devicons'),
+}, { confirm = false })
 
 -- line numbers
 vim.opt.number = true
@@ -339,9 +357,11 @@ require('gen').setup({
   hidden = false,
 })
 
--- nvim-treesitter: ensure parsers are installed
--- In nvim 0.12+ with new nvim-treesitter, highlighting is built-in via vim.treesitter
-require('nvim-treesitter').setup({
-  ensure_installed = { 'python', 'bash', 'yaml', 'go', 'json', 'lua', 'vim', 'toml', 'hcl', 'puppet' },
-  ignore_install = { 'javascript' },
+-- nvim-treesitter: install parsers and enable highlighting
+local ts_languages = { 'python', 'bash', 'yaml', 'go', 'json', 'lua', 'vim', 'toml', 'hcl', 'puppet' }
+require('nvim-treesitter').install(ts_languages)
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = ts_languages,
+  callback = function() vim.treesitter.start() end,
 })

@@ -1,0 +1,113 @@
+{
+  "plugins": {
+    "NeoSolarized": {
+      "rev": "b94b1a9ad51e2de015266f10fdc6e142f97bd617",
+      "src": "https://github.com/overcache/NeoSolarized"
+    },
+    "claude-code.nvim": {
+      "rev": "55c0cb59828fbc3bec744288286a46f5d5750b83",
+      "src": "https://github.com/greggh/claude-code.nvim"
+    },
+    "coc-nginx": {
+      "rev": "b5cd6a38451566f2036e2b24ef816249859b7862",
+      "src": "https://github.com/yaegassy/coc-nginx"
+    },
+    "coc.nvim": {
+      "rev": "88eb637ede17062e730b60a855dca42654b65db1",
+      "src": "https://github.com/neoclide/coc.nvim",
+      "version": "'release'"
+    },
+    "comments.vim": {
+      "rev": "8ed0f393da85e9344c8fde6c369ee6a13759f63b",
+      "src": "https://github.com/vim-scripts/comments.vim"
+    },
+    "everforest": {
+      "rev": "b03a03148c8b34c24c96960b93da9c8883d11f54",
+      "src": "https://github.com/sainnhe/everforest"
+    },
+    "fzf": {
+      "rev": "fff7eda9d76209e7e07f87ad3a116952297492a2",
+      "src": "https://github.com/junegunn/fzf"
+    },
+    "fzf.vim": {
+      "rev": "34a564c81f36047f50e593c1656f4580ff75ccca",
+      "src": "https://github.com/junegunn/fzf.vim"
+    },
+    "gen.nvim": {
+      "rev": "c8e1f574d4a3a839dde73a87bdc319a62ee1e559",
+      "src": "https://github.com/David-Kunz/gen.nvim"
+    },
+    "indentLine": {
+      "rev": "b96a75985736da969ac38b72a7716a8c57bdde98",
+      "src": "https://github.com/Yggdroot/indentLine"
+    },
+    "nerdtree": {
+      "rev": "690d061b591525890f1471c6675bcb5bdc8cdff9",
+      "src": "https://github.com/preservim/nerdtree"
+    },
+    "nerdtree-git-plugin": {
+      "rev": "e1fe727127a813095854a5b063c15e955a77eafb",
+      "src": "https://github.com/Xuyuanp/nerdtree-git-plugin"
+    },
+    "nvim-notify": {
+      "rev": "8701bece920b38ea289b457f902e2ad184131a5d",
+      "src": "https://github.com/rcarriga/nvim-notify"
+    },
+    "nvim-treesitter": {
+      "rev": "7caec274fd19c12b55902a5b795100d21531391f",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "oceanic-next": {
+      "rev": "09833f72d5ba23de2e8bcae18f479f326f5f677a",
+      "src": "https://github.com/mhartington/oceanic-next"
+    },
+    "plenary.nvim": {
+      "rev": "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "tabular": {
+      "rev": "12437cd1b53488e24936ec4b091c9324cafee311",
+      "src": "https://github.com/godlygeek/tabular"
+    },
+    "tagbar": {
+      "rev": "7bfffca1f121afb7a9e38747500bf5270e006bb1",
+      "src": "https://github.com/majutsushi/tagbar"
+    },
+    "targets.vim": {
+      "rev": "6325416da8f89992b005db3e4517aaef0242602e",
+      "src": "https://github.com/wellle/targets.vim"
+    },
+    "vim-airline": {
+      "rev": "512456e425409ec58627bd839fbb85d449d8cbc1",
+      "src": "https://github.com/vim-airline/vim-airline"
+    },
+    "vim-airline-themes": {
+      "rev": "77aab8c6cf7179ddb8a05741da7e358a86b2c3ab",
+      "src": "https://github.com/vim-airline/vim-airline-themes"
+    },
+    "vim-devicons": {
+      "rev": "71f239af28b7214eebb60d4ea5bd040291fb7e33",
+      "src": "https://github.com/ryanoasis/vim-devicons"
+    },
+    "vim-fugitive": {
+      "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
+      "src": "https://github.com/tpope/vim-fugitive"
+    },
+    "vim-gitgutter": {
+      "rev": "55b368d4c68541775b4b253d3c98d3145b695c24",
+      "src": "https://github.com/airblade/vim-gitgutter"
+    },
+    "vim-rhubarb": {
+      "rev": "5496d7c94581c4c9ad7430357449bb57fc59f501",
+      "src": "https://github.com/tpope/vim-rhubarb"
+    },
+    "vim-tmux-navigator": {
+      "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
+      "src": "https://github.com/christoomey/vim-tmux-navigator"
+    },
+    "which-key.nvim": {
+      "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
+      "src": "https://github.com/folke/which-key.nvim"
+    }
+  }
+}
