@@ -12,7 +12,6 @@ fi
 
 # resolve script directory
 if [[ $OS == "mac" ]]; then
-    # install coreutils for greadlink if missing
     if ! command -v greadlink &>/dev/null; then
         brew install coreutils
     fi
@@ -22,18 +21,24 @@ else
 fi
 
 # install dependencies
+echo "Installing dependencies..."
 if [[ $OS == "mac" ]]; then
-    brew install neovim fzf ripgrep node
+    brew install neovim fzf ripgrep node 2>/dev/null || true
 elif [[ $OS == "linux" ]]; then
     sudo apt update -q
     sudo apt install -f -y -q neovim fzf ripgrep nodejs npm
 fi
 
 # setup config directory and symlinks
+echo "Setting up config symlinks..."
 mkdir -p ~/.config/nvim
+rm -f ~/.config/nvim/init.vim  # remove old vimscript config if present
 ln -sf "${FILE_LOC}/autoload" ~/.config/nvim/
 ln -sf "${FILE_LOC}/init.lua" ~/.config/nvim/
 ln -sf "${FILE_LOC}/coc-settings.json" ~/.config/nvim/
 
 # install plugins
+echo "Installing plugins..."
 nvim --headless "+PlugInstall --sync" "+qa"
+
+echo "Done!"
