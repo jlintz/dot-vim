@@ -53,7 +53,7 @@ vim.pack.add({
   -- UI
   gh('Yggdroot/indentLine'),
   gh('godlygeek/tabular'),
-  gh('wellle/targets.vim'),
+  gh('echasnovski/mini.ai'),
   gh('majutsushi/tagbar'),
   gh('rcarriga/nvim-notify'),
   -- LSP
@@ -394,6 +394,8 @@ require('nvim-tree').setup({
     icons = { show = { git = true, file = true, folder = true } },
   },
 })
+
+require('mini.ai').setup()
 
 require('claude-code').setup()
 
