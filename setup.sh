@@ -26,7 +26,7 @@ if [[ $OS == "mac" ]]; then
     brew install neovim fzf ripgrep node tree-sitter-cli 2>/dev/null || true
 elif [[ $OS == "linux" ]]; then
     sudo apt update -q
-    sudo apt install -f -y -q neovim fzf ripgrep nodejs
+    sudo apt install -f -y -q neovim fzf ripgrep nodejs tree-sitter-cli
 fi
 
 # setup config directory and symlinks

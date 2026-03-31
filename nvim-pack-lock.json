@@ -26,7 +26,7 @@
       "src": "https://github.com/sainnhe/everforest"
     },
     "fzf": {
-      "rev": "fff7eda9d76209e7e07f87ad3a116952297492a2",
+      "rev": "cc16a97a40a16efecbed5bd7fb322010c033e503",
       "src": "https://github.com/junegunn/fzf"
     },
     "fzf.vim": {
