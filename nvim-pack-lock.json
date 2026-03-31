@@ -37,6 +37,10 @@
       "rev": "c8e1f574d4a3a839dde73a87bdc319a62ee1e559",
       "src": "https://github.com/David-Kunz/gen.nvim"
     },
+    "gitsigns.nvim": {
+      "rev": "50c205548d8b037b7ff6378fca6d21146f0b6161",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
     "indentLine": {
       "rev": "b96a75985736da969ac38b72a7716a8c57bdde98",
       "src": "https://github.com/Yggdroot/indentLine"
@@ -88,10 +92,6 @@
     "vim-fugitive": {
       "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
       "src": "https://github.com/tpope/vim-fugitive"
-    },
-    "vim-gitgutter": {
-      "rev": "55b368d4c68541775b4b253d3c98d3145b695c24",
-      "src": "https://github.com/airblade/vim-gitgutter"
     },
     "vim-rhubarb": {
       "rev": "5496d7c94581c4c9ad7430357449bb57fc59f501",
