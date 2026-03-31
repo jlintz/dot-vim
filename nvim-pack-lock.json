@@ -41,6 +41,10 @@
       "rev": "b96a75985736da969ac38b72a7716a8c57bdde98",
       "src": "https://github.com/Yggdroot/indentLine"
     },
+    "lualine.nvim": {
+      "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
     "nerdtree": {
       "rev": "690d061b591525890f1471c6675bcb5bdc8cdff9",
       "src": "https://github.com/preservim/nerdtree"
@@ -76,14 +80,6 @@
     "targets.vim": {
       "rev": "6325416da8f89992b005db3e4517aaef0242602e",
       "src": "https://github.com/wellle/targets.vim"
-    },
-    "vim-airline": {
-      "rev": "512456e425409ec58627bd839fbb85d449d8cbc1",
-      "src": "https://github.com/vim-airline/vim-airline"
-    },
-    "vim-airline-themes": {
-      "rev": "77aab8c6cf7179ddb8a05741da7e358a86b2c3ab",
-      "src": "https://github.com/vim-airline/vim-airline-themes"
     },
     "vim-devicons": {
       "rev": "71f239af28b7214eebb60d4ea5bd040291fb7e33",

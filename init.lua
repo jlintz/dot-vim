@@ -44,8 +44,7 @@ vim.pack.add({
   -- Syntax
   gh('nvim-treesitter/nvim-treesitter'),
   -- Status line
-  gh('vim-airline/vim-airline'),
-  gh('vim-airline/vim-airline-themes'),
+  gh('nvim-lualine/lualine.nvim'),
   -- Editing
   gh('vim-scripts/comments.vim'),
   -- Git
@@ -138,25 +137,39 @@ vim.fn.matchadd('ExtraWhitespace', [[\s\+$]])
 -- tagbar
 vim.keymap.set('n', '<C-i>', ':TagbarToggle<CR>', { silent = true })
 
--- airline settings
-vim.g['airline#extensions#tabline#enabled'] = 1
-vim.g['airline#extensions#tabline#formatter'] = 'unique_tail_improved'
-vim.g.airline_powerline_fonts = 1
-vim.g['airline#extensions#tabline#buffer_idx_mode'] = 1
-vim.g['airline#extensions#coc#enabled'] = 1
-vim.g.airline_theme = 'oceanicnext'
+-- lualine settings
+require('lualine').setup({
+  options = {
+    theme = 'OceanicNext',
+    icons_enabled = true,
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
+  },
+  sections = {
+    lualine_a = { 'mode' },
+    lualine_b = { 'branch', 'diff', 'diagnostics' },
+    lualine_c = { 'filename' },
+    lualine_x = { 'encoding', 'fileformat', 'filetype' },
+    lualine_y = { 'progress' },
+    lualine_z = { 'location' },
+  },
+  tabline = {
+    lualine_a = { { 'buffers', mode = 2 } },
+    lualine_z = { 'tabs' },
+  },
+  extensions = {
+      'fzf',
+      'nerdtree',
+      'fugitive',
+      'quickfix',
+  }
+})
 
-vim.keymap.set('n', '<leader>1', '<Plug>AirlineSelectTab1')
-vim.keymap.set('n', '<leader>2', '<Plug>AirlineSelectTab2')
-vim.keymap.set('n', '<leader>3', '<Plug>AirlineSelectTab3')
-vim.keymap.set('n', '<leader>4', '<Plug>AirlineSelectTab4')
-vim.keymap.set('n', '<leader>5', '<Plug>AirlineSelectTab5')
-vim.keymap.set('n', '<leader>6', '<Plug>AirlineSelectTab6')
-vim.keymap.set('n', '<leader>7', '<Plug>AirlineSelectTab7')
-vim.keymap.set('n', '<leader>8', '<Plug>AirlineSelectTab8')
-vim.keymap.set('n', '<leader>9', '<Plug>AirlineSelectTab9')
-vim.keymap.set('n', '<C-w>j', '<Plug>AirlineSelectPrevTab')
-vim.keymap.set('n', '<C-w>k', '<Plug>AirlineSelectNextTab')
+for i = 1, 9 do
+  vim.keymap.set('n', '<leader>' .. i, '<cmd>LualineBuffersJump! ' .. i .. '<CR>')
+end
+vim.keymap.set('n', '<C-w>j', '<cmd>bprevious<CR>')
+vim.keymap.set('n', '<C-w>k', '<cmd>bnext<CR>')
 
 vim.opt.ttimeoutlen = 50
 
@@ -334,7 +347,7 @@ vim.keymap.set('n', '<space>p', ':<C-u>CocListResume<CR>', { silent = true, nowa
 
 -- devicons configuration
 vim.g.webdevicons_enable_nerdtree = 1
-vim.g.webdevicons_enable_airline_statusline = 1
+vim.g.webdevicons_enable_airline_statusline = 0
 vim.g.DevIconsEnableFoldersOpenClose = 1
 vim.g.WebDevIconsNerdTreeAfterGlyphPadding = '  '
 vim.g.WebDevIconsNerdTreeGitPluginForceVAlign = 1
