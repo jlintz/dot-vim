@@ -18,9 +18,7 @@ local gh = function(repo) return 'https://github.com/' .. repo end
 vim.api.nvim_create_autocmd('PackChanged', { callback = function(ev)
   local name, kind = ev.data.spec.name, ev.data.kind
 
-  if name == 'fzf' and (kind == 'install' or kind == 'update') then
-    vim.fn['fzf#install']()
-  elseif name == 'nvim-treesitter' and kind == 'update' then
+  if name == 'nvim-treesitter' and kind == 'update' then
     if not ev.data.active then vim.cmd.packadd('nvim-treesitter') end
     vim.cmd('TSUpdate')
   elseif name == 'coc-nginx' and (kind == 'install' or kind == 'update') then
@@ -39,8 +37,7 @@ vim.pack.add({
   gh('greggh/claude-code.nvim'),
   gh('David-Kunz/gen.nvim'),
   -- Fuzzy finder
-  gh('junegunn/fzf'),
-  gh('junegunn/fzf.vim'),
+  gh('ibhagwan/fzf-lua'),
   -- Syntax
   gh('nvim-treesitter/nvim-treesitter'),
   -- Status line
@@ -107,8 +104,8 @@ vim.opt.softtabstop = 4
 -- change leader key from \ to ,
 vim.g.mapleader = ','
 
--- fzf
-vim.keymap.set('n', '<C-P>', ':Files<CR>')
+-- fzf-lua
+vim.keymap.set('n', '<C-P>', '<cmd>FzfLua files<CR>')
 
 -- NERDTree options
 vim.keymap.set('n', '<C-n>', ':NERDTreeToggle<CR>', { silent = true })
@@ -388,6 +385,10 @@ require('gitsigns').setup({
     -- Text object
     map({ 'o', 'x' }, 'ih', gs.select_hunk)
   end,
+})
+
+require('fzf-lua').setup({
+    fzf_colors = true,
 })
 
 require('claude-code').setup()
