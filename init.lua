@@ -51,7 +51,7 @@ vim.pack.add({
   -- File explorer
   gh('nvim-tree/nvim-tree.lua'),
   -- UI
-  gh('Yggdroot/indentLine'),
+  gh('lukas-reineke/indent-blankline.nvim'),
   gh('godlygeek/tabular'),
   gh('echasnovski/mini.ai'),
   gh('majutsushi/tagbar'),
@@ -184,8 +184,6 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- indentLine settings
-vim.g.indentLine_enabled = 1
 
 -- coc configuration
 
@@ -396,6 +394,8 @@ require('nvim-tree').setup({
 })
 
 require('mini.ai').setup()
+
+require('ibl').setup()
 
 require('claude-code').setup()
 
