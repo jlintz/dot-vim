@@ -49,8 +49,7 @@ vim.pack.add({
   gh('tpope/vim-rhubarb'),
   gh('lewis6991/gitsigns.nvim'),
   -- File explorer
-  gh('preservim/nerdtree'),
-  gh('Xuyuanp/nerdtree-git-plugin'),
+  gh('nvim-tree/nvim-tree.lua'),
   -- UI
   gh('Yggdroot/indentLine'),
   gh('godlygeek/tabular'),
@@ -63,7 +62,7 @@ vim.pack.add({
   -- Misc
   gh('folke/which-key.nvim'),
   gh('christoomey/vim-tmux-navigator'),
-  gh('ryanoasis/vim-devicons'),
+  gh('nvim-tree/nvim-web-devicons'),
 }, { confirm = false })
 
 -- line numbers
@@ -107,11 +106,9 @@ vim.g.mapleader = ','
 -- fzf-lua
 vim.keymap.set('n', '<C-P>', '<cmd>FzfLua files<CR>')
 
--- NERDTree options
-vim.keymap.set('n', '<C-n>', ':NERDTreeToggle<CR>', { silent = true })
-vim.keymap.set('n', '<C-o>', ':NERDTreeToggle %<CR>', { silent = true })
-vim.g.NERDTreeQuitOnOpen = 1
-vim.g.NERDTreeShowHidden = 1
+-- nvim-tree
+vim.keymap.set('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', { silent = true })
+vim.keymap.set('n', '<C-o>', '<cmd>NvimTreeFindFile<CR>', { silent = true })
 
 vim.opt.background = 'dark'
 vim.cmd('colorscheme OceanicNext')
@@ -156,7 +153,7 @@ require('lualine').setup({
   },
   extensions = {
       'fzf',
-      'nerdtree',
+      'nvim-tree',
       'fugitive',
       'quickfix',
   }
@@ -342,14 +339,6 @@ vim.keymap.set('n', '<space>j', ':<C-u>CocNext<CR>', { silent = true, nowait = t
 vim.keymap.set('n', '<space>k', ':<C-u>CocPrev<CR>', { silent = true, nowait = true })
 vim.keymap.set('n', '<space>p', ':<C-u>CocListResume<CR>', { silent = true, nowait = true })
 
--- devicons configuration
-vim.g.webdevicons_enable_nerdtree = 1
-vim.g.webdevicons_enable_airline_statusline = 0
-vim.g.DevIconsEnableFoldersOpenClose = 1
-vim.g.WebDevIconsNerdTreeAfterGlyphPadding = '  '
-vim.g.WebDevIconsNerdTreeGitPluginForceVAlign = 1
-vim.g.WebDevIconsUnicodeDecorateFileNodes = 1
-
 -- Lua plugin configs
 require('gitsigns').setup({
   on_attach = function(bufnr)
@@ -389,6 +378,21 @@ require('gitsigns').setup({
 
 require('fzf-lua').setup({
     fzf_colors = true,
+})
+
+require('nvim-tree').setup({
+  actions = {
+    open_file = { quit_on_open = true },
+  },
+  filters = {
+    dotfiles = false,
+  },
+  git = {
+    enable = true,
+  },
+  renderer = {
+    icons = { show = { git = true, file = true, folder = true } },
+  },
 })
 
 require('claude-code').setup()
