@@ -42,8 +42,6 @@ vim.pack.add({
   gh('nvim-treesitter/nvim-treesitter'),
   -- Status line
   gh('nvim-lualine/lualine.nvim'),
-  -- Editing
-  gh('vim-scripts/comments.vim'),
   -- Git
   gh('tpope/vim-fugitive'),
   gh('tpope/vim-rhubarb'),
@@ -56,6 +54,7 @@ vim.pack.add({
   gh('echasnovski/mini.ai'),
   gh('majutsushi/tagbar'),
   gh('rcarriga/nvim-notify'),
+  gh('folke/todo-comments.nvim'),
   -- LSP
   { src = gh('neoclide/coc.nvim'), version = 'release' },
   { src = gh('yaegassy/coc-nginx'), name = 'coc-nginx' },
@@ -105,6 +104,10 @@ vim.g.mapleader = ','
 
 -- fzf-lua
 vim.keymap.set('n', '<C-P>', '<cmd>FzfLua files<CR>')
+
+-- toggle comments with Ctrl-c (uses built-in gc)
+vim.keymap.set('n', '<C-c>', 'gcc', { remap = true })
+vim.keymap.set('v', '<C-c>', 'gc', { remap = true })
 
 -- nvim-tree
 vim.keymap.set('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', { silent = true })
@@ -394,6 +397,8 @@ require('nvim-tree').setup({
 })
 
 require('mini.ai').setup()
+
+require('todo-comments').setup()
 
 require('mini.align').setup()
 
