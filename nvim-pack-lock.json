@@ -61,6 +61,10 @@
       "rev": "4b0a6207341d895b6cfe9bcb1e4d3e8607bfe4f4",
       "src": "https://github.com/echasnovski/mini.ai"
     },
+    "mini.align": {
+      "rev": "4d45e0e4f1fd8baefb6ae52a44659704fe7ebe8b",
+      "src": "https://github.com/echasnovski/mini.align"
+    },
     "nerdtree": {
       "rev": "690d061b591525890f1471c6675bcb5bdc8cdff9",
       "src": "https://github.com/preservim/nerdtree"

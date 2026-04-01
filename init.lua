@@ -52,7 +52,7 @@ vim.pack.add({
   gh('nvim-tree/nvim-tree.lua'),
   -- UI
   gh('lukas-reineke/indent-blankline.nvim'),
-  gh('godlygeek/tabular'),
+  gh('echasnovski/mini.align'),
   gh('echasnovski/mini.ai'),
   gh('majutsushi/tagbar'),
   gh('rcarriga/nvim-notify'),
@@ -394,6 +394,8 @@ require('nvim-tree').setup({
 })
 
 require('mini.ai').setup()
+
+require('mini.align').setup()
 
 require('ibl').setup()
 
