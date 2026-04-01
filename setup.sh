@@ -23,10 +23,10 @@ fi
 # install dependencies
 echo "Installing dependencies..."
 if [[ $OS == "mac" ]]; then
-    brew install neovim fzf ripgrep node tree-sitter-cli 2>/dev/null || true
+    brew install neovim fzf ripgrep tree-sitter-cli 2>/dev/null || true
 elif [[ $OS == "linux" ]]; then
     sudo apt update -q
-    sudo apt install -f -y -q neovim fzf ripgrep nodejs tree-sitter-cli
+    sudo apt install -f -y -q neovim fzf ripgrep tree-sitter-cli
 fi
 
 # setup config directory and symlinks
@@ -34,7 +34,6 @@ echo "Setting up config symlinks..."
 mkdir -p ~/.config/nvim
 rm -f ~/.config/nvim/init.vim  # remove old vimscript config if present
 ln -sf "${FILE_LOC}/init.lua" ~/.config/nvim/
-ln -sf "${FILE_LOC}/coc-settings.json" ~/.config/nvim/
 ln -sf "${FILE_LOC}/nvim-pack-lock.json" ~/.config/nvim/ 2>/dev/null || true
 
 # install plugins
