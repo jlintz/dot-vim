@@ -34,6 +34,7 @@ echo "Setting up config symlinks..."
 mkdir -p ~/.config/nvim
 rm -f ~/.config/nvim/init.vim  # remove old vimscript config if present
 ln -sf "${FILE_LOC}/init.lua" ~/.config/nvim/
+ln -sf "${FILE_LOC}/lua" ~/.config/nvim/
 ln -sf "${FILE_LOC}/nvim-pack-lock.json" ~/.config/nvim/ 2>/dev/null || true
 
 # install plugins
