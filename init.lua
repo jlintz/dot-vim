@@ -49,6 +49,7 @@ vim.pack.add({
   -- Completion
   gh('hrsh7th/nvim-cmp'),
   gh('hrsh7th/cmp-nvim-lsp'),
+  gh('hrsh7th/cmp-nvim-lsp-signature-help'),
   gh('hrsh7th/cmp-buffer'),
   gh('hrsh7th/cmp-path'),
   gh('L3MON4D3/LuaSnip'),
@@ -68,7 +69,7 @@ vim.opt.smartcase = true       -- ignore case if search pattern is all lowercase
 vim.opt.relativenumber = true  -- relative line numbers
 
 vim.opt.undolevels = 1000
-vim.opt.undodir = vim.fn.expand('~/.vim/.backup//')
+vim.opt.undodir = vim.fn.expand('~/.config/nvim/backup/')
 
 vim.opt.wildignore = { '*.swp', '*.bak', '*.pyc', '*.class' }
 
@@ -225,7 +226,7 @@ require('gitsigns').setup({
 })
 
 require('fzf-lua').setup({
-    fzf_colors = true,
+  fzf_colors = true,
 })
 
 require('nvim-tree').setup({
@@ -249,17 +250,20 @@ require('todo-comments').setup()
 
 require('mini.align').setup()
 
-require('ibl').setup()
+require('ibl').setup({
+  indent = { char = '┊' },
+})
 
 -- LSP: mason + vim.lsp.config (nvim 0.11+)
 require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = {
-    'pyright', 'jsonls', 'yamlls', 'bashls', 'html', 'cssls',
+    'pyrefly', 'jsonls', 'yamlls', 'bashls', 'gopls', 'html', 'cssls',
+    'ansiblels', 'nginx_language_server',
   },
 })
 
-local servers = { 'pyright', 'jsonls', 'yamlls', 'bashls', 'gopls', 'html', 'cssls' }
+local servers = { 'jsonls', 'yamlls', 'bashls', 'gopls', 'html', 'cssls', 'ansiblels', 'nginx_language_server' }
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 for _, server in ipairs(servers) do
@@ -352,6 +356,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'nvim_lsp_signature_help' },
   }, {
     { name = 'buffer' },
     { name = 'path' },
@@ -364,7 +369,7 @@ vim.diagnostic.config({
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = '✘',
-      [vim.diagnostic.severity.WARN] = '',
+      [vim.diagnostic.severity.WARN] = '⚠',
       [vim.diagnostic.severity.INFO] = '',
       [vim.diagnostic.severity.HINT] = '',
     },

@@ -23,10 +23,10 @@ fi
 # install dependencies
 echo "Installing dependencies..."
 if [[ $OS == "mac" ]]; then
-    brew install neovim fzf ripgrep tree-sitter-cli 2>/dev/null || true
+    brew install neovim fzf fd ripgrep tree-sitter-cli 2>/dev/null || true
 elif [[ $OS == "linux" ]]; then
     sudo apt update -q
-    sudo apt install -f -y -q neovim fzf ripgrep tree-sitter-cli
+    sudo apt install -f -y -q neovim fzf fd-find ripgrep tree-sitter-cli
 fi
 
 # setup config directory and symlinks
