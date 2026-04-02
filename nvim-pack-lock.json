@@ -77,6 +77,10 @@
       "rev": "b96a75985736da969ac38b72a7716a8c57bdde98",
       "src": "https://github.com/Yggdroot/indentLine"
     },
+    "lspkind.nvim": {
+      "rev": "c7274c48137396526b59d86232eabcdc7fed8a32",
+      "src": "https://github.com/onsails/lspkind.nvim"
+    },
     "lualine.nvim": {
       "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
       "src": "https://github.com/nvim-lualine/lualine.nvim"

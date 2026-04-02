@@ -57,6 +57,7 @@ vim.pack.add({
   gh('hrsh7th/cmp-path'),
   gh('L3MON4D3/LuaSnip'),
   gh('saadparwaiz1/cmp_luasnip'),
+  gh('onsails/lspkind.nvim'),
   -- Misc
   gh('folke/which-key.nvim'),
   gh('christoomey/vim-tmux-navigator'),
