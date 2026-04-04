@@ -32,8 +32,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         map('n', 'gi', vim.lsp.buf.implementation, 'Go to implementation')
         map('n', 'gr', vim.lsp.buf.references, 'Go to references')
 
-        map('n', '[g', vim.diagnostic.goto_prev, 'Previous diagnostic')
-        map('n', ']g', vim.diagnostic.goto_next, 'Next diagnostic')
+        map('n', '[g', function() vim.diagnostic.jump({ count = -1, float = true }) end, 'Previous diagnostic')
+        map('n', ']g', function() vim.diagnostic.jump({ count = 1, float = true }) end, 'Next diagnostic')
         map('n', '<leader>?', vim.diagnostic.open_float, 'Show diagnostic')
 
         map('n', 'K', function() vim.lsp.buf.hover({ border = 'rounded', width = 70 }) end, 'Hover documentation')
