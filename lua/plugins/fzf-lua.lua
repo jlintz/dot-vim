@@ -1,5 +1,5 @@
 require('fzf-lua').setup({
-  fzf_colors = true,
+    fzf_colors = true,
 })
 
 vim.keymap.set('n', '<C-P>', '<cmd>FzfLua files<CR>')
