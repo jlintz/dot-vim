@@ -11,3 +11,6 @@ vim.keymap.set('n', '<C-w>k', '<cmd>bnext<CR>')
 
 -- tagbar
 vim.keymap.set('n', '<C-i>', ':TagbarToggle<CR>', { silent = true })
+
+-- undotree
+vim.keymap.set("n", "<leader>u", require("undotree").open)

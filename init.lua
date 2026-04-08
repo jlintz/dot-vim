@@ -18,6 +18,9 @@ vim.api.nvim_create_autocmd('PackChanged', {
     end
 })
 
+-- load built-in plugins
+vim.cmd.packadd('nvim.undotree')
+
 -- Install and load plugins via built-in vim.pack
 vim.pack.add({
     -- Color schemes
