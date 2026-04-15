@@ -3,6 +3,7 @@ require('fzf-lua').setup({
 })
 
 vim.keymap.set('n', '<C-P>', '<cmd>FzfLua files<CR>')
+vim.keymap.set('n', '<C-G>', '<cmd>FzfLua live_grep<CR>')
 
 -- LSP list mappings (replaces CoCList)
 vim.keymap.set('n', '<space>a', '<cmd>FzfLua diagnostics_workspace<CR>', { silent = true, nowait = true })
