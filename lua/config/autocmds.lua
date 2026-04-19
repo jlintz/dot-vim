@@ -20,15 +20,28 @@ vim.api.nvim_set_hl(0, 'ExtraWhitespace', { bg = 'red' })
 vim.fn.matchadd('ExtraWhitespace', [[\s\+$]])
 
 -- Format on save
+vim.g.autoformat = true
 vim.api.nvim_create_autocmd('BufWritePre', {
     callback = function()
-        vim.lsp.buf.format({ async = false })
+        if vim.g.autoformat and vim.b.autoformat ~= false then
+            vim.lsp.buf.format({ async = false })
+        end
     end,
 })
 
 -- User commands
 vim.api.nvim_create_user_command('Format', function()
     vim.lsp.buf.format({ async = true })
+end, {})
+
+vim.api.nvim_create_user_command('FormatToggle', function()
+    vim.g.autoformat = not vim.g.autoformat
+    print('autoformat: ' .. tostring(vim.g.autoformat))
+end, {})
+
+vim.api.nvim_create_user_command('FormatToggleBuffer', function()
+    vim.b.autoformat = not (vim.b.autoformat ~= false)
+    print('buffer autoformat: ' .. tostring(vim.b.autoformat))
 end, {})
 
 vim.api.nvim_create_user_command('OR', function()
