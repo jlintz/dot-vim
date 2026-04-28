@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         map('n', '[g', function() vim.diagnostic.jump({ count = -1, float = true }) end, 'Previous diagnostic')
         map('n', ']g', function() vim.diagnostic.jump({ count = 1, float = true }) end, 'Next diagnostic')
-        map('n', '<leader>ds', vim.diagnostic.show, 'Show diagnostic')
+        map('n', '<leader>ds', vim.diagnostic.open_float, 'Show diagnostic')
         map('n', '<leader>dh', vim.diagnostic.hide, 'Hide diagnostic')
 
         map('n', 'K', function() vim.lsp.buf.hover({ border = 'rounded', width = 70 }) end, 'Hover documentation')
@@ -109,7 +109,7 @@ vim.lsp.config('lua_ls', {
 
 -- Diagnostic display
 vim.diagnostic.config({
-    virtual_text = { current_line = true },
+    virtual_text = false,
     signs = {
         text = {
             [vim.diagnostic.severity.ERROR] = '✘',
@@ -120,4 +120,5 @@ vim.diagnostic.config({
     },
     float = { border = 'rounded' },
     update_in_insert = false,
+
 })
