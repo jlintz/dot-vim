@@ -2,21 +2,15 @@
 require('mason').setup()
 require('mason-lspconfig').setup({
     ensure_installed = {
-        'basedpyright', 'jsonls', 'yamlls', 'bashls', 'gopls', 'html', 'cssls',
+        'basedpyright', 'jsonls', 'yamlls', 'bashls', 'shellcheck',
         'ansiblels', 'nginx_language_server', 'lua_ls',
     },
 })
 
-local servers = { 'basedpyright', 'jsonls', 'yamlls', 'bashls', 'gopls', 'html', 'cssls', 'ansiblels',
-    'nginx_language_server' }
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-for _, server in ipairs(servers) do
-    vim.lsp.config(server, {
-        capabilities = capabilities,
-    })
-end
-vim.lsp.enable(servers)
+-- Applies to all servers; mason-lspconfig's automatic_enable handles vim.lsp.enable()
+vim.lsp.config('*', {
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+})
 
 -- LSP keymaps (applied when a server attaches to a buffer)
 vim.api.nvim_create_autocmd('LspAttach', {
