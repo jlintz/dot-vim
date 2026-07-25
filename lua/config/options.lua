@@ -12,10 +12,11 @@ vim.opt.wildignore = { '*.swp', '*.bak', '*.pyc', '*.class' }
 
 vim.opt.title = true
 
--- enable folding on indents
-vim.opt.foldmethod = 'indent'
--- don't autofold anything by default
-vim.opt.foldlevel = 100
+-- treesitter-aware folding (falls back to no folds where there's no parser)
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+-- don't autofold anything by default; zc/za turn folding back on
+vim.opt.foldenable = false
 
 -- none of these are word dividers
 vim.opt.iskeyword:append({ '_', '$', '@', '%', '#' })

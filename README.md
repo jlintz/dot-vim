@@ -35,7 +35,7 @@ Update all plugins:
 Update a specific plugin:
 
 ```vim
-:lua vim.pack.update('nvim-cmp')
+:lua vim.pack.update({ 'nvim-cmp' })
 ```
 
 ## Updating LSP Servers

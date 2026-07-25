@@ -1,5 +1,5 @@
 -- run python code
-vim.keymap.set('', '<F5>', ':!python %<CR>')
+vim.keymap.set('n', '<F5>', '<cmd>!python3 %<CR>')
 
 -- toggle comments with Ctrl-c (uses built-in gc)
 vim.keymap.set('n', '<C-c>', 'gcc', { remap = true })

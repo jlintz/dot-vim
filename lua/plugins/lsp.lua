@@ -36,8 +36,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         map('n', '<leader>rn', vim.lsp.buf.rename, 'Rename symbol')
 
+        -- no <leader>ac here: a longer mapping on the same prefix would make
+        -- <leader>a wait out 'timeoutlen' before firing
         map({ 'n', 'x' }, '<leader>a', vim.lsp.buf.code_action, 'Code action')
-        map('n', '<leader>ac', vim.lsp.buf.code_action, 'Code action')
         map('n', '<leader>qf', vim.lsp.buf.code_action, 'Quick fix')
 
         map({ 'n', 'x' }, '<leader>f', function() vim.lsp.buf.format({ async = true }) end, 'Format')

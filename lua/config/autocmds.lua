@@ -35,7 +35,8 @@ vim.g.autoformat = true
 vim.api.nvim_create_autocmd('BufWritePre', {
     callback = function()
         if vim.g.autoformat and vim.b.autoformat ~= false then
-            vim.lsp.buf.format({ async = false })
+            -- synchronous, so this blocks the write until it returns
+            vim.lsp.buf.format({ async = false, timeout_ms = 2000 })
         end
     end,
 })
