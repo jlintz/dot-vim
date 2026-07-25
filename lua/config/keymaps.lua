@@ -9,8 +9,8 @@ vim.keymap.set('v', '<C-c>', 'gc', { remap = true })
 vim.keymap.set('n', '<C-w>j', '<cmd>bprevious<CR>')
 vim.keymap.set('n', '<C-w>k', '<cmd>bnext<CR>')
 
--- tagbar
-vim.keymap.set('n', '<C-i>', ':TagbarToggle<CR>', { silent = true })
+-- NOTE: <C-i> is the same keycode as <Tab>; mapping it breaks jumplist-forward,
+-- the counterpart to <C-o>. Use <space>o (fzf lsp_document_symbols) for an outline.
 
 -- undotree
 vim.keymap.set("n", "<leader>u", require("undotree").open)

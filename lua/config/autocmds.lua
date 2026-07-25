@@ -15,9 +15,20 @@ vim.api.nvim_create_autocmd('FileType', {
     end,
 })
 
--- Show trailing whitespace
-vim.api.nvim_set_hl(0, 'ExtraWhitespace', { bg = 'red' })
-vim.fn.matchadd('ExtraWhitespace', [[\s\+$]])
+-- Show trailing whitespace. matchadd() is window-local, so it has to run for
+-- every window, and the highlight has to be re-declared after a colorscheme load.
+local function set_extra_whitespace_hl()
+    vim.api.nvim_set_hl(0, 'ExtraWhitespace', { bg = 'red' })
+end
+set_extra_whitespace_hl()
+vim.api.nvim_create_autocmd('ColorScheme', { callback = set_extra_whitespace_hl })
+
+vim.api.nvim_create_autocmd({ 'VimEnter', 'WinEnter' }, {
+    callback = function()
+        if vim.w.extra_whitespace_match or vim.bo.buftype ~= '' then return end
+        vim.w.extra_whitespace_match = vim.fn.matchadd('ExtraWhitespace', [[\s\+$]])
+    end,
+})
 
 -- Format on save
 vim.g.autoformat = true

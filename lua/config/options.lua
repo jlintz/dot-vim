@@ -4,8 +4,9 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.relativenumber = true
 
+-- persistent undo; default undodir (~/.local/state/nvim/undo) is auto-created
+vim.opt.undofile = true
 vim.opt.undolevels = 1000
-vim.opt.undodir = vim.fn.expand('~/.config/nvim/backup/')
 
 vim.opt.wildignore = { '*.swp', '*.bak', '*.pyc', '*.class' }
 
