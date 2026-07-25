@@ -2,7 +2,7 @@
 require('mason').setup()
 require('mason-lspconfig').setup({
     ensure_installed = {
-        'basedpyright', 'jsonls', 'yamlls', 'bashls',
+        'basedpyright', 'gopls', 'jsonls', 'yamlls', 'bashls',
         'ansiblels', 'nginx_language_server', 'lua_ls',
     },
 })

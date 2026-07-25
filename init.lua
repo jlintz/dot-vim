@@ -47,18 +47,15 @@ vim.pack.add({
     gh('lukas-reineke/indent-blankline.nvim'),
     gh('echasnovski/mini.align'),
     gh('echasnovski/mini.ai'),
-    gh('majutsushi/tagbar'),
-    gh('rcarriga/nvim-notify'),
     gh('folke/todo-comments.nvim'),
     -- LSP
-    gh('williamboman/mason.nvim'),
-    gh('williamboman/mason-lspconfig.nvim'),
+    gh('mason-org/mason.nvim'),
+    gh('mason-org/mason-lspconfig.nvim'),
     gh('neovim/nvim-lspconfig'),
     -- Completion
     gh('hrsh7th/nvim-cmp'),
     gh('hrsh7th/cmp-nvim-lsp'),
     gh('hrsh7th/cmp-nvim-lsp-signature-help'),
-    gh('hrsh7th/cmp-buffer'),
     gh('hrsh7th/cmp-path'),
     gh('onsails/lspkind.nvim'),
     -- Misc

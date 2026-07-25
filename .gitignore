@@ -2,3 +2,4 @@
 .backup
 *.swp
 plugged
+.DS_Store
