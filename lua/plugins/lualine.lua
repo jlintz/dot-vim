@@ -1,6 +1,6 @@
 require('lualine').setup({
     options = {
-        theme = 'OceanicNext',
+        theme = 'gruvbox',
         icons_enabled = true,
     },
     tabline = {

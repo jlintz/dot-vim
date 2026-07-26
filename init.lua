@@ -27,6 +27,7 @@ vim.pack.add({
     gh('overcache/NeoSolarized'),
     gh('mhartington/oceanic-next'),
     gh('sainnhe/everforest'),
+    gh('ellisonleao/gruvbox.nvim'),
     -- AI
     gh('nvim-lua/plenary.nvim'),
     gh('greggh/claude-code.nvim'),
