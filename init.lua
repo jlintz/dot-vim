@@ -49,6 +49,7 @@ vim.pack.add({
     gh('echasnovski/mini.align'),
     gh('echasnovski/mini.ai'),
     gh('folke/todo-comments.nvim'),
+    gh('soemre/commentless.nvim'),
     -- LSP
     gh('mason-org/mason.nvim'),
     gh('mason-org/mason-lspconfig.nvim'),
@@ -82,6 +83,7 @@ require('plugins.treesitter')
 require('plugins.mini')
 require('plugins.ibl')
 require('plugins.todo-comments')
+require('plugins.commentless')
 require('plugins.which-key')
 require('plugins.claude-code')
 require('plugins.gen')

@@ -20,6 +20,10 @@
       "rev": "c642487086dbd9a93160e1679a1327be111cbc25",
       "src": "https://github.com/hrsh7th/cmp-path"
     },
+    "commentless.nvim": {
+      "rev": "67263e1973276fb6f8f089b815d0f69fc50673b1",
+      "src": "https://github.com/soemre/commentless.nvim"
+    },
     "everforest": {
       "rev": "b03a03148c8b34c24c96960b93da9c8883d11f54",
       "src": "https://github.com/sainnhe/everforest"
